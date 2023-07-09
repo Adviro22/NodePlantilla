@@ -3,7 +3,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Obtener el directorio actual
 const __filename = fileURLToPath(import.meta.url);
