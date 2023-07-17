@@ -1,5 +1,5 @@
 // Obtener los parámetros de la URL
-const urlParams = new URLSearchParams(window.location.search);  
+const urlParams = new URLSearchParams(window.location.search);
 
 // Obtener el valor del parámetro 'tagNo'
 const tag = urlParams.get('tag');
@@ -21,3 +21,30 @@ document.getElementById('year').textContent = year;
 document.getElementById('marca').textContent = marca;
 document.getElementById('body_style').textContent = body_style;
 document.getElementById('color').textContent = color;
+
+// Obtener la fecha actual
+var fecha = new Date();
+
+// Obtener el mes, día y año
+var mes = fecha.getMonth() + 1; // Los meses van de 0 a 11
+var dia = fecha.getDate();
+var anio = fecha.getFullYear();
+
+// Formatear el mes y el día con ceros iniciales si es necesario
+if (mes < 10) {
+  mes = "0" + mes;
+}
+
+if (dia < 10) {
+  dia = "0" + dia;
+}
+
+// Crear la cadena de texto en el formato mm/dd/aaaa
+var fechaFormateada = mes + "/" + dia + "/" + anio;
+
+// Comparar las fechas
+if (fechaFormateada <= fecha2) {
+    document.getElementById('state').textContent = "ACTIVE";
+} else {
+    document.getElementById('state').textContent = "INACTIVE";
+}
