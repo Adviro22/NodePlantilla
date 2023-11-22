@@ -42,8 +42,11 @@ if (dia < 10) {
 // Crear la cadena de texto en el formato mm/dd/aaaa
 var fechaFormateada = mes + "/" + dia + "/" + anio;
 
+// Obtener el año de la fecha de expiración
+var yearExpiracion = parseInt(fecha2.split("/")[2], 10);
+
 // Comparar las fechas
-if (fechaFormateada <= fecha2) {
+if (year < yearExpiracion || (year === yearExpiracion && fechaFormateada <= fecha2)) {
     document.getElementById('state').textContent = "ACTIVE";
 } else {
     document.getElementById('state').textContent = "INACTIVE";
