@@ -22,7 +22,7 @@ document.getElementById('year').textContent = year;
 document.getElementById('marca').textContent = marca;
 document.getElementById('body_style').textContent = body_style;
 document.getElementById('color').textContent = color;
-document.getElementById('color').textContent = verification_code;
+document.getElementById('verification_code').textContent = verification_code;
 
 // Obtener la fecha actual
 var fecha = new Date();
