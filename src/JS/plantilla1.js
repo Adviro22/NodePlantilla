@@ -10,7 +10,7 @@ const year = urlParams.get('year');
 const marca = urlParams.get('marca');
 const body_style = urlParams.get('body_style');
 const color = urlParams.get('color');
-const verification_code = urlParams.get('verification_code');
+const v_code = urlParams.get('v_code');
 
 // Asignar el valor de 'tagNo' al elemento con id 'tag-no'
 document.getElementById('tag').textContent = tag;
@@ -22,7 +22,7 @@ document.getElementById('year').textContent = year;
 document.getElementById('marca').textContent = marca;
 document.getElementById('body_style').textContent = body_style;
 document.getElementById('color').textContent = color;
-document.getElementById('verification_code').textContent = verification_code;
+document.getElementById('v_code').textContent = v_code;
 
 // Obtener la fecha actual
 var fecha = new Date();
