@@ -21,6 +21,10 @@ app.get('/doc2', (req, res) => {
   res.sendFile(path.join(__dirname, 'src', 'HTML', 'plantilla2.html'));
 });
 
+app.get('/doc3', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src', 'HTML', 'plantilla2.html'));
+});
+
 app.listen(port, () => {
   console.log(`El servidor está escuchando en el puerto ${port}`);
 });
