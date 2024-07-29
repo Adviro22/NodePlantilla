@@ -1,7 +1,7 @@
 // Obtener los parámetros de la URL
 const urlParams = new URLSearchParams(window.location.search);
 
-// Obtener el valor del parámetro 'tagNo'
+// Obtener los valores de los parámetros
 const tag = urlParams.get('tag');
 const fecha1 = urlParams.get('fecha1');
 const fecha2 = urlParams.get('fecha2');
@@ -12,44 +12,40 @@ const body_style = urlParams.get('body_style');
 const color = urlParams.get('color');
 const v_code = urlParams.get('v_code');
 
-// Asignar el valor de 'tagNo' al elemento con id 'tag-no'
-document.getElementById('tag').textContent = tag;
-document.getElementById('fecha1').textContent = fecha1;
-document.getElementById('fecha1_1').textContent = fecha1;
-document.getElementById('fecha2').textContent = fecha2;
-document.getElementById('vin').textContent = vin;
-document.getElementById('year').textContent = year;
-document.getElementById('marca').textContent = marca;
-document.getElementById('body_style').textContent = body_style;
-document.getElementById('color').textContent = color;
-document.getElementById('v_code').textContent = v_code;
+// Función para asignar texto a un elemento si existe
+function setElementText(id, text) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.textContent = text;
+    }
+}
+
+// Asignar los valores a los elementos correspondientes
+setElementText('tag', tag);
+setElementText('fecha1', fecha1);
+setElementText('fecha1_1', fecha1);
+setElementText('fecha2', fecha2);
+setElementText('vin', vin);
+setElementText('year', year);
+setElementText('marca', marca);
+setElementText('body_style', body_style);
+setElementText('color', color);
+setElementText('v_code', v_code);
 
 // Obtener la fecha actual
-var fecha = new Date();
+const fecha = new Date();
+const mes = (fecha.getMonth() + 1).toString().padStart(2, '0'); // Los meses van de 0 a 11
+const dia = fecha.getDate().toString().padStart(2, '0');
+const anio = fecha.getFullYear();
 
-// Obtener el mes, día y año
-var mes = fecha.getMonth() + 1; // Los meses van de 0 a 11
-var dia = fecha.getDate();
-var anio = fecha.getFullYear();
+// Crear la cadena de texto en el formato mm/dd/yyyy
+const fechaFormateada = `${mes}/${dia}/${anio}`;
 
-// Formatear el mes y el día con ceros iniciales si es necesario
-if (mes < 10) {
-  mes = "0" + mes;
-}
-
-if (dia < 10) {
-  dia = "0" + dia;
-}
-
-// Crear la cadena de texto en el formato mm/dd/aaaa
-var fechaFormateada = mes + "/" + dia + "/" + anio;
-
-// Obtener el año de la fecha de expiración
-var yearExpiracion = parseInt(fecha2.split("/")[2], 10);
+// Convertir las fechas a objetos Date
+const fechaActual = new Date(`${anio}-${mes}-${dia}`);
+const fechaExpiracionParts = fecha2.split("/");
+const fechaExpiracion = new Date(`${fechaExpiracionParts[2]}-${fechaExpiracionParts[0]}-${fechaExpiracionParts[1]}`);
 
 // Comparar las fechas
-if (year < yearExpiracion || (year === yearExpiracion && fechaFormateada <= fecha2)) {
-    document.getElementById('state').textContent = "ACTIVE";
-} else {
-    document.getElementById('state').textContent = "INACTIVE";
-}
+const state = fechaActual <= fechaExpiracion ? "ACTIVE" : "INACTIVE";
+setElementText('state', state);
