@@ -22,7 +22,7 @@ app.get('/doc2', (req, res) => {
 });
 
 app.get('/doc3', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'HTML', 'plantilla2.html'));
+  res.sendFile(path.join(__dirname, 'src', 'HTML', 'plantilla3.html'));
 });
 
 app.listen(port, () => {
