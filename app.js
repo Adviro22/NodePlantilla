@@ -30,7 +30,7 @@ app.get('/doc4', (req, res) => {
 });
 
 app.get('/doc5', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'HTML', 'plantilla4.html'));
+  res.sendFile(path.join(__dirname, 'src', 'HTML', 'plantilla5.html'));
 });
 
 app.listen(port, () => {
